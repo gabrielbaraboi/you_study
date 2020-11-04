@@ -1,0 +1,569 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+/* Main css file goes here                         */
+/* (c) All rights reserved to Gabriel Baraboi  */
+/* * * * * * * * * * * * * * * * * * * * * * * * * */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    /* Background colors */
+    --body-bg: #272b3b;
+    --menu-bg: #2b2e44;
+    --menu-icon-bg: #323550;
+    --menu-item-hover-bg: #3e445b95;
+    --content-bg: #30334c;
+    --footer-bg: #232535;
+    --form-input-bg: #3a3e5f;
+
+    /* Text colors */
+    --text-color: #bdc8f6;
+    --text-hover-color: #448aff;
+    --heading-color: #ffffff;
+    --nav-title-color: #8e97bf;
+    --text-color-secondary: #6273bb;
+    --secondary-text: #8a98d3;
+
+    /* info colors */
+    --danger-color: #DA6572;
+    --warning-color: #F3B911;
+    --info-color: #0DB2CC;
+    --success-color: #29CC5F;
+
+    /* info borders */
+    --danger-border: #B9434F;
+    --warning-border: #CA9805;
+    --info-border: #0BA3BB;
+    --success-border: #25A750;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b425e;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-hover-color);
+}
+
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+html {
+    font-size: 12px;
+    height: 100%;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: var(--body-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: var(--heading-color);
+    transition: all .2s ease-in-out;
+}
+
+a:hover {
+    color: var(--text-hover-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+pre {
+    color: var(--text-color);
+}
+
+textarea {
+    white-space: pre-wrap;
+}
+
+::placeholder {
+    color: #7174a8 !important;
+}
+
+blockquote {
+    border-left: 3px solid var(--text-color-secondary);
+    padding: 5px 0 5px 10px;
+    margin: 1rem;
+}
+
+.list-style-none {
+    list-style: none;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.bg-color {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: -webkit-linear-gradient(45deg, #E9405705, #8A238707 80%);
+    z-index: -1;
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+    clip-path: inset(0px 0px 99.9% 99.9%);
+    overflow: hidden;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    border: 0;
+}
+
+.hidden td:first-child {
+    border-left: 3px solid #ea5664 !important;
+}
+
+.hidden-text {
+    color: #ea5664;
+    display: block;
+    width: 100%;
+    background-color: var(--content-bg);
+    font-weight: bold;
+    padding: 10px 15px;
+    border-left: 3px solid #ea5664;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.special {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 3px solid var(--text-hover-color);
+    text-shadow: 0 0 30px var(--text-hover-color);
+}
+
+.verified {
+    color: var(--text-hover-color);
+}
+
+.desc ul {
+    padding: 0 0 0 40px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.first {
+    color: var(--heading-color);
+}
+
+.fit {
+    width: fit-content;
+}
+
+.disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.close {
+    color: #fff;
+    text-shadow: none;
+    transition: all .2s ease-in-out;
+}
+
+.close:hover {
+    color: var(--text-hover-color);
+}
+
+.main {
+    min-height: 100%;
+}
+
+.main-content {
+    width: 100%;
+    padding: 30px 40px 140px 40px;
+    position: relative;
+}
+
+.row {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.page-title {
+    margin-bottom: 10px;
+}
+
+.login {
+    border-radius: 10px;
+    border: none;
+    padding: 25px;
+    background: var(--content-bg);
+    position: relative;
+    margin: 50px auto;
+}
+
+.login .login-icon {
+    background: #3c67b7;
+    color: var(--text-color);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-size: 60px;
+    margin: 0 auto
+}
+
+.login .login-title {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 700;
+    top: 15px
+}
+
+.login .login-form {
+    font-size: 18px;
+    color: #fff!important;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 45px;
+    background: 0 0;
+    padding: 0 5px 0 38px;
+    border: none;
+    border-bottom: 2px solid #646679;
+}
+
+.login .login-form::-webkit-input-placeholder {
+    color: #fff
+}
+
+.login .login-form::-moz-placeholder {
+    color: #fff
+}
+
+.login .login-form:-ms-input-placeholder {
+    color: #fff
+}
+
+.login .login-form::-ms-input-placeholder {
+    color: #fff
+}
+
+.login .login-form::placeholder {
+    color: #fff
+}
+
+.login .login-form:focus {
+    outline: 0;
+    padding-left: 5px
+}
+
+.login .login-form:focus+.login-span:before {
+    bottom: 38px;
+    font-size: 14px
+}
+
+.login .login-form:focus-within+.login-span:after {
+    width: 100%!important
+}
+
+.login .login-form:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+.login .login-form:focus::-moz-placeholder {
+    color: transparent
+}
+
+.login .login-form:focus:-ms-input-placeholder {
+    color: transparent
+}
+
+.login .login-form:focus::-ms-input-placeholder {
+    color: transparent
+}
+
+.login .login-form:focus::placeholder {
+    color: transparent
+}
+
+.login .login-group {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.login .login-span {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none
+}
+
+.login .login-span:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
+    background: #fff
+}
+
+.login .email:before {
+    content: "\f0e0";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    position: absolute;
+    bottom: 13px;
+    color: #fff;
+    left: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s
+}
+
+.login .secret:before {
+    content: "\f084";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    position: absolute;
+    bottom: 13px;
+    color: #fff;
+    left: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s
+}
+
+.login .firstname:before {
+    content: "\f304";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    position: absolute;
+    bottom: 13px;
+    color: #fff;
+    left: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s
+}
+
+.login .lastname:before {
+    content: "\f5b7";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    position: absolute;
+    bottom: 13px;
+    color: #fff;
+    left: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s
+}
+
+.login .password:before {
+    content: "\f084";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    position: absolute;
+    bottom: 13px;
+    color: #fff;
+    left: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s
+}
+
+.login .password_confirm:before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 16px;
+    position: absolute;
+    bottom: 13px;
+    color: #fff;
+    left: 5px;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s
+}
+
+.login p {
+    font-size: 1.2rem;
+}
+
+.login p a {
+    color: #3c67b7;
+}
+
+.login p a:hover {
+    color: var(--text-hover-color);
+}
+
+.login .login-btn {
+    color: var(--heading-color);
+    background: #3c67b7;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    padding: 0 1.75rem !important;
+    height: 50px;
+    border-radius: 25px;
+    outline: 0;
+    border: none;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+
+.login-focused {
+    outline: 0;
+    padding-left: 5px!important
+}
+
+.login-focused+.login-span:before {
+    bottom: 38px!important;
+    font-size: 14px!important
+}
+
+.login-focused+.login-span:after {
+    width: 100%!important
+}
+
+.login .invalid-feedback {
+    position: absolute;
+}
+
+.footer {
+    text-align: center;
+    min-height: 70px;
+    padding: 20px 0px;
+    background-color: var(--footer-bg);
+    position: relative;
+    clear: both;
+    margin-top: -70px;
+}
+
+.footer .copyright {
+    padding: 0 20px;
+}
+
+.footer .copyright p {
+    margin: 0;
+}
+
+.footer .copyright p a {
+    font-weight: bold;
+}
+
+.footer i.fa-heart {
+    color: #ff4d4d;
+}
+
+.footer i.fa-coffee {
+    color: #0099ff;
+}
+
+.message,
+.alert {
+    width: 100%;
+    background: url(../img/bg-lines.png) repeat-x #95A5A6;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.message ul {
+    list-style: none;
+}
+
+.message span {
+    vertical-align: middle;
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.message.success,
+.alert.success {
+    background-color: var(--success-color);
+}
+
+.message.info,
+.alert.info {
+    background-color: var(--info-color);
+}
+
+.message.danger,
+.alert.danger {
+    background-color: var(--danger-color);
+}
+
+.message.warning,
+.alert.warning {
+    background-color: var(--warning-color);
+}
