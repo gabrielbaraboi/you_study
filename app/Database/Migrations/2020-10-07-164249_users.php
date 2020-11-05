@@ -12,9 +12,10 @@ class Users extends Migration
             'firstname'				=> ['type' => 'VARCHAR', 'constraint' => 40],
             'lastname'				=> ['type' => 'VARCHAR', 'constraint' => 40],
             'password'				=> ['type' => 'VARCHAR', 'constraint' => 255],
-            'role'				    => ['type' => 'ENUM', 'constraint' => ['student', 'teacher', 'admin'], 'default' => 'student'],
-            'created_at'			=> ['DATETIME' => 'bigint', 'null' => true],
-            'updated_at'            => ['DATETIME' => 'bigint', 'null' => true]
+            'group'				    => ['type' => 'INT', 'constraint' => 5, 'null' => true],
+            'role'				    => ['type' => 'ENUM', 'constraint' => ['student', 'teacher', 'admin', 'root'], 'default' => 'student'],
+            'created_at'			=> ['type' => 'DATETIME', 'null' => true],
+            'updated_at'            => ['type' => 'DATETIME', 'null' => true]
         ]);
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey('email');

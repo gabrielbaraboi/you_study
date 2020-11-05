@@ -6,17 +6,11 @@ use App\Models\UserModel;
 class Registration extends BaseController
 {
 
-    protected $session;
-    protected $config;
-
-    public function __construct()
-    {
-        // start session
-        $this->session = Services::session();
-    }
-
     public function index()
     {
+        if (session('isLoggedIn'))
+            return redirect()->to('home');
+
         return view('register');
     }
 

@@ -10,12 +10,17 @@
             <div class="form-group login-group">
                 <input type="email" name="email" id="email"
                        class="login-form"
-                       value="">
+                       value="<?= old('email') ?>"
+                       placeholder ="Email"
+                       required>
                 <span class="login-span email"></span>
             </div>
             <div class="form-group login-group">
                 <input type="password" name="password" id="password"
-                       class="login-form">
+                       class="login-form"
+                       value=""
+                       placeholder ="Password"
+                       required>
                 <span class="login-span password"></span>
             </div>
             <?php if (isset($validation)): ?>

@@ -12,7 +12,6 @@
 <body>
 <main class="main">
     <div class="main-content">
-        <h1 class="visually-hidden">YouStudy</h1>
         <?= $this->renderSection('main') ?>
     </div>
 </main>

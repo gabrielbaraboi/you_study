@@ -1,6 +1,7 @@
 <?= $this->extend('Views\layout') ?>
 <?= $this->section('main') ?>
-    Home Page. <br>
+
+    Dashboard. <br>
     <span>Hello, <?= $user['role'] ?></span>
-<?= $this->include('sidebar') ?>
+
 <?= $this->endSection() ?>

@@ -7,6 +7,9 @@ class Login extends BaseController
 {
     public function index()
     {
+        if (session('isLoggedIn'))
+            return redirect()->to('home');
+
         return view('login');
     }
 
@@ -50,11 +53,17 @@ class Login extends BaseController
             'firstname' => $user['firstname'],
             'lastname' => $user['lastname'],
             'email' => $user['email'],
+            'role' => $user['role'],
             'isLoggedIn' => true,
         ];
 
         session()->set($data);
         return true;
+    }
+
+    public function logout(){
+        session()->destroy();
+        return redirect()->to('/');
     }
 
 }

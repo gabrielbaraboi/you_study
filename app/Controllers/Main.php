@@ -4,7 +4,10 @@ class Main extends BaseController
 {
 	public function index()
 	{
-		return view('main');
+        if (session('isLoggedIn'))
+            return redirect()->to('home');
+
+        return view('main');
 	}
 
 	//--------------------------------------------------------------------

@@ -36,6 +36,7 @@ $routes->get('register', 'Registration::index');
 $routes->post('register', 'Registration::register');
 $routes->get('login', 'Login::index');
 $routes->post('login', 'Login::login');
+$routes->get('logout', 'Login::logout');
 /**
  * --------------------------------------------------------------------
  * Additional Routing
