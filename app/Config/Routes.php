@@ -30,13 +30,37 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Main::index');
-$routes->get('home', 'Home::index');
-$routes->get('register', 'Registration::index');
-$routes->post('register', 'Registration::register');
-$routes->get('login', 'Login::index');
-$routes->post('login', 'Login::login');
-$routes->get('logout', 'Login::logout');
+$routes->get('/', 'Main::index', ['filter' => 'noauth']);
+$routes->get('home', 'Home::index', ['filter' => 'auth']);
+
+$routes->get('login', 'Login::index', ['filter' => 'noauth']);
+$routes->post('login', 'Login::login', ['filter' => 'noauth']);
+$routes->get('logout', 'Login::logout', ['filter' => 'auth']);
+
+$routes->get('dashboard', 'Dashboard::index', ['filter' => 'admin']);
+
+$routes->get('dashboard/users/all', 'Dashboard::all_users', ['filter' => 'admin']);
+$routes->get('dashboard/users/new', 'Dashboard::new_user', ['filter' => 'admin']);
+$routes->post('dashboard/users/new', 'Dashboard::new_user', ['filter' => 'admin']);
+$routes->get('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
+$routes->post('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
+
+$routes->get('dashboard/groups/all', 'Dashboard::all_groups', ['filter' => 'admin']);
+$routes->get('dashboard/groups/new', 'Dashboard::new_group', ['filter' => 'admin']);
+$routes->post('dashboard/groups/new', 'Dashboard::new_group', ['filter' => 'admin']);
+$routes->get('dashboard/groups/edit/(:num)', 'Dashboard::edit_group/$1', ['filter' => 'admin']);
+$routes->post('dashboard/groups/edit/(:num)', 'Dashboard::edit_group/$1', ['filter' => 'admin']);
+$routes->post('dashboard/groups/assign/(:num)', 'Dashboard::assign/$1', ['filter' => 'admin']);
+
+$routes->get('dashboard/quizzes/all', 'Dashboard::all_quizzes', ['filter' => 'admin']);
+$routes->get('dashboard/quizzes/new/1', 'Dashboard::new_quiz_1', ['filter' => 'admin']);
+$routes->post('dashboard/quizzes/new/1', 'Dashboard::new_quiz_1', ['filter' => 'admin']);
+$routes->get('dashboard/quizzes/new/2', 'Dashboard::new_quiz_2', ['filter' => 'admin']);
+$routes->post('dashboard/quizzes/new/2', 'Dashboard::new_quiz_2', ['filter' => 'admin']);
+//$routes->get('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
+//$routes->post('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
+
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing

@@ -10,5 +10,6 @@
             }
         })
     })
+    $('#table').DataTable();
 
 })(jQuery);

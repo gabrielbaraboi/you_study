@@ -2,12 +2,13 @@
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class GroupModel extends Model
 {
-    protected $table = 'users';
-    protected $allowedFields = ['firstname', 'lastname', 'email', 'groups', 'password', 'updated_at'];
+    protected $table = 'groups';
+    protected $allowedFields = ['name', 'updated_at'];
     protected $beforeInsert = ['beforeInsert'];
     protected $beforeUpdate = ['beforeUpdate'];
+
 
     protected function beforeInsert(array $data)
     {

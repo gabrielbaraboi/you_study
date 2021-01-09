@@ -7,9 +7,7 @@
             <div class="user-welcome">
                 <?php if (session('isLoggedIn')): ?>
                     <div class="user-avatar">
-                        <a href="#">
-                            <img class="logged-img" src="" alt="">
-                        </a>
+                        <span><?= substr($user['firstname'], 0,  1) . substr($user['lastname'], 0,  1) ?></span>
                     </div>
                     <span class="welcome-text">Hello, <?= $user['firstname'] . ' ' . $user['lastname']; ?></span>
                     <div class="user-controls">

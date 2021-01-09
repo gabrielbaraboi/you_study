@@ -12,8 +12,8 @@ class Users extends Migration
             'firstname'				=> ['type' => 'VARCHAR', 'constraint' => 40],
             'lastname'				=> ['type' => 'VARCHAR', 'constraint' => 40],
             'password'				=> ['type' => 'VARCHAR', 'constraint' => 255],
-            'group'				    => ['type' => 'INT', 'constraint' => 5, 'null' => true],
             'role'				    => ['type' => 'ENUM', 'constraint' => ['student', 'teacher', 'admin', 'root'], 'default' => 'student'],
+            'groups'			    => ['type' => 'VARCHAR', 'constraint' => 100, 'null' => true],
             'created_at'			=> ['type' => 'DATETIME', 'null' => true],
             'updated_at'            => ['type' => 'DATETIME', 'null' => true]
         ]);

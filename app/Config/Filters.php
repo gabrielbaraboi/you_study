@@ -1,5 +1,8 @@
 <?php namespace Config;
 
+use App\Filters\Auth;
+use App\Filters\IsAdmin;
+use App\Filters\NoAuth;
 use CodeIgniter\Config\BaseConfig;
 
 class Filters extends BaseConfig
@@ -10,6 +13,9 @@ class Filters extends BaseConfig
 		'csrf'     => \CodeIgniter\Filters\CSRF::class,
 		'toolbar'  => \CodeIgniter\Filters\DebugToolbar::class,
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
+        'auth' => Auth::class,
+        'noauth' => NoAuth::class,
+        'admin' => IsAdmin::class,
 ];
 
 	// Always applied before every request
