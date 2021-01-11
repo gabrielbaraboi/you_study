@@ -21,6 +21,7 @@
             </ul>
         </div>
     </div>
+    <?php if ($currentUser['role'] != 'teacher'): ?>
     <div class="nav-group">
         <button class="nav-button" type="button" data-toggle="collapse" data-target="#collapse-users" aria-expanded="true" aria-controls="collapse-users">Users</button>
         <div id="collapse-users" class="collapse show">
@@ -40,6 +41,7 @@
             </ul>
         </div>
     </div>
+    <?php endif; ?>
     <div class="nav-group">
         <button class="nav-button" type="button" data-toggle="collapse" data-target="#collapse-groups" aria-expanded="true" aria-controls="collapse-groups">Groups</button>
         <div id="collapse-groups" class="collapse show">

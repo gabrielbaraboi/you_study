@@ -6,7 +6,7 @@
                 <i class="fas fa-sign-in-alt"></i>
             </span>
         <h2 class="login-title">Login</h2>
-        <form action="/login" accept-charset="UTF-8" method="POST" class="form">
+        <form action="/login" autocomplete="off" accept-charset="UTF-8" method="POST" class="form">
             <div class="form-group login-group">
                 <input type="email" name="email" id="email"
                        class="login-form"
@@ -29,13 +29,17 @@
                 </div>
             <?php endif; ?>
             <?= csrf_field() ?>
-            <p class="text-align-center">
-                <a href="<?= base_url('forgot-password'); ?>">Forgot your password?</a><br>
-                <a href="<?= base_url('register'); ?>">You do not have an account?</a>
-            </p>
             <button type="submit" class="login-btn">Log in</button>
         </form>
     </div>
 </div>
-
+    <style>
+        .main-content {
+            width: 100%;
+            margin: 0;
+        }
+        .footer {
+            margin-left: 0;
+        }
+    </style>
 <?= $this->endSection() ?>

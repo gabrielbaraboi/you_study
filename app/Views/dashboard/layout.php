@@ -24,19 +24,12 @@
                 </a>
             </div>
             <div class="user-nav">
-                <ul class="user-social list-style-none">
-                    <li><a href="#"><i class="fas fa-inbox"></i></a></li>
-                    <li><a href="#"><i class="fas fa-bell"></i></a></li>
-                </ul>
                 <div class="user-info">
                     <a href="#">
-                        <img class="user-avatar" src="#"
-                             alt="">
                         <span class="user-name"><?= $currentUser['firstname'] . ' ' . $currentUser['lastname']; ?></span>
                     </a>
                 </div>
                 <ul class="user-controllers list-style-none">
-                    <li><a href="#"><i class="fas fa-cog"></i></a></li>
                     <li><a href="<?= base_url('logout'); ?>"><i class="fas fa-sign-out-alt"></i></a></li>
                 </ul>
             </div>

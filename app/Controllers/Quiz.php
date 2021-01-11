@@ -45,6 +45,7 @@ class Quiz extends BaseController
         $data['group'] = $group;
         $data['passed'] = $passed;
         $data['start'] = False;
+        $data['mark'] = 'You did not pass the test!';
 
         $date = date('Y-m-d H:i:s');
 
@@ -73,7 +74,6 @@ class Quiz extends BaseController
         $quizzes = $quizModel->findAll();
         $teachers = $model->where('role', 'teacher')->findAll();
         $data['currentUser'] = $currentUser;
-        $data['quizzes'] = $quizzes;
         $data['teachers'] = $teachers;
         $data['groups'] = $groups;
 
@@ -275,7 +275,7 @@ class Quiz extends BaseController
             ];
 
             $passModel->save($newData);
-            return redirect()->to(base_url('quizzes'));
+            return redirect()->to(base_url('quizzes/' . $id));
         }
 
         return view('quiz_answer', $data);

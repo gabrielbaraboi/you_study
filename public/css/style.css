@@ -130,6 +130,11 @@ textarea {
     white-space: pre-wrap;
 }
 
+textarea.form-control {
+    height: auto !important;
+}
+
+
 ::placeholder {
     color: #7174a8 !important;
 }
@@ -678,9 +683,23 @@ blockquote {
     position: relative;
 }
 
-.main-menu .user-bar .search .form-control {
-    background-color: #323550;
-    position: relative;
+.form .form-control {
+    background-color: var(--content-bg);
+    color: var(--text-color);
+    height: calc(1.5em + 1.15rem + 2px);
+    border: 2px solid transparent;
+    padding: .375rem 1rem;
+    border-radius: 5px;
+}
+
+.page-block .form .form-control,
+.modal .form .form-control,
+.page-block .form .tox .tox-edit-area__iframe,
+.page-block .form .tox .tox-toolbar-overlord,
+.page-block .form .tox .tox-toolbar,
+.page-block .form .tox .tox-toolbar__overflow,
+.page-block .form .tox .tox-toolbar__primary {
+    background-color: #3a3e5f;
 }
 
 .main-menu .user-bar .search .btn {
@@ -691,6 +710,23 @@ blockquote {
     background-color: #323550;
     top: 5px;
     right: 24px;
+}
+
+.btn-main {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 0.75rem;
+    transition: all .2s ease-in-out;
+    color: var(--heading-color);
+}
+
+.btn-main:hover {
+    box-shadow: 0 3px 0 0 #4a4f77;
+}
+
+.btn-primary:hover {
+    box-shadow: 0 3px 0 0 #0a4eb9;
 }
 
 /* Navbar */

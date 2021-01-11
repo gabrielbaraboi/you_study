@@ -78,7 +78,6 @@ class Groups extends BaseController
                     ];
                     $groupModel->update($id, $newData);
                     return redirect()->to(base_url('dashboard/groups/all'));
-
                 }
             }
         }

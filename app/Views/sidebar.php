@@ -12,14 +12,7 @@
                     <span class="welcome-text">Hello, <?= $user['firstname'] . ' ' . $user['lastname']; ?></span>
                     <div class="user-controls">
                         <ul class="list-style-none">
-                            <li><a href="#"><i class="fas fa-user-cog"></i></a></li>
                             <li><a href="<?= base_url('logout'); ?>"><i class="fas fa-sign-out-alt"></i></a></li>
-                        </ul>
-                    </div>
-                <?php else: ?>
-                    <div class="user-controls">
-                        <ul class="list-style-none">
-                            <li><a href="<?= base_url('login') ?>"><i class="fas fa-sign-in-alt"></i></a></li>
                         </ul>
                     </div>
                 <?php endif; ?>
