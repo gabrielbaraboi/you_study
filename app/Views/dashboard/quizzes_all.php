@@ -36,21 +36,9 @@
                         <td><?= $quiz['end_time']; ?></td>
                         <?php if ($currentUser['role'] == 'admin' or $currentUser['role'] == 'root'): ?>
                             <td>
-                                <a class="tnTableAction" href="<?= base_url("dashboard/users/edit/{$user['id']}") ?>">
-                                    <i class="fas fa-edit"></i>
+                                <a class="tnTableAction" href="<?= base_url("dashboard/quizzes/delete/{$quiz['id']}") ?>">
+                                    <i class="fas fa-trash"></i>
                                 </a>
-                                <?php if ($user['role'] == 'teacher'): ?>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#assignTeacherModal">
-                                        <i class="fas fa-users"></i>
-                                    </button>
-                                <?php endif; ?>
-                                <?php if ($user['role'] == 'student'): ?>
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#assignStudentModal">
-                                        <i class="fas fa-users"></i>
-                                    </button>
-                                <?php endif; ?>
                             </td>
                         <?php endif; ?>
 

@@ -29,6 +29,32 @@
                 <span class="login-span"></span>
             </div>
             <div class="form-group login-group">
+                <select name="role" id="role" class="form-control">
+                    <option value="admin" <?php if (strcmp($user['role'], 'admin') == 0): ?> selected <?php endif; ?>>Admin</option>
+                    <option value="teacher" <?php if (strcmp($user['role'], 'teacher') == 0): ?> selected <?php endif; ?>>Teacher</option>
+                    <option value="student" <?php if (strcmp($user['role'], 'student') == 0): ?> selected <?php endif; ?>>Student</option>
+                </select>
+            </div>
+            <?php if (strcmp($user['role'], 'teacher') == 0): ?>
+            <div class="form-group login-group">
+                <select name="userGroups[]" id="userGroups" class="form-control"
+                        multiple="multiple"
+                        size="5">
+                    <?php foreach ($groups as $group): ?>
+                        <option value="<?php echo $group['id']; ?>"<?php if (unserialize($user['groups'])): if (in_array($group['id'], unserialize($user['groups']))): ?> selected='selected'<?php endif; endif; ?>><?php echo $group['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <?php elseif (strcmp($user['role'], 'student') == 0): ?>
+            <div class="form-group login-group">
+                <select name="userGroup" id="userGroup" class="form-control">
+                    <?php foreach ($groups as $group): ?>
+                        <option value="<?= $group['id']; ?>"<?php if ($group['id'] == $user['groups']): ?> selected <?php endif; ?>><?= $group['name']; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <?php endif; ?>
+            <div class="form-group login-group">
                 <input type="password" name="password" id="password"
                        class="login-form"
                        value=""

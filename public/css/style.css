@@ -700,6 +700,10 @@ blockquote {
     }
 }
 
+.nav {
+    display: block !important;
+}
+
 .main-menu .navbar {
     margin-top: 15px;
 }
@@ -1060,15 +1064,6 @@ blockquote {
     position: relative;
     left: 0;
     transition: var(--2s-transition);
-}
-
-.acc-info ul li i.second {
-    color: #3385FF;
-    position: absolute;
-    left: -55px;
-    visibility: hidden;
-    opacity: 0;
-    transition: var(--default-transition);
 }
 
 .acc-info ul li span {

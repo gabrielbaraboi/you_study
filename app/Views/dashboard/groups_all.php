@@ -20,6 +20,9 @@
                             <a class="tnTableAction" href="<?= base_url("dashboard/groups/edit/{$group['id']}") ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
+                            <a class="tnTableAction" href="<?= base_url("dashboard/groups/delete/{$group['id']}") ?>">
+                                <i class="fas fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

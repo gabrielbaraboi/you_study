@@ -7,13 +7,13 @@
         <div id="collapse-home" class="collapse show">
             <ul class="list-style-none">
                 <li>
-                    <a href="#">
+                    <a href="<?= base_url('dashboard'); ?>">
                         <i class="fas fa-tachometer-alt"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" target="_blank">
+                    <a href="<?= base_url('/'); ?>" target="_blank">
                         <i class="fas fa-home"></i>
                         <span>Homepage</span>
                     </a>
@@ -76,6 +76,12 @@
                     <a href="<?= base_url('dashboard/quizzes/new/1'); ?>">
                         <i class="fas fa-user-plus"></i>
                         <span>Create Quiz</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= base_url('dashboard/quizzes/passed'); ?>">
+                        <i class="fas fa-file"></i>
+                        <span>Passed Quizzes</span>
                     </a>
                 </li>
             </ul>

@@ -32,9 +32,6 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index', ['filter' => 'auth']);
-$routes->get('quizzes', 'Quiz::index', ['filter' => 'auth']);
-$routes->get('quizzes/(:num)', 'Quiz::view_quiz/$1', ['filter' => 'auth']);
-$routes->get('quiz/(:num)/answer', 'Quiz::answer_quiz/$1', ['filter' => 'auth']);
 
 $routes->get('login', 'Login::index', ['filter' => 'noauth']);
 $routes->post('login', 'Login::login', ['filter' => 'noauth']);
@@ -42,26 +39,34 @@ $routes->get('logout', 'Login::logout', ['filter' => 'auth']);
 
 $routes->get('dashboard', 'Dashboard::index', ['filter' => 'admin']);
 
-$routes->get('dashboard/users/all', 'Dashboard::all_users', ['filter' => 'admin']);
-$routes->get('dashboard/users/new', 'Dashboard::new_user', ['filter' => 'admin']);
-$routes->post('dashboard/users/new', 'Dashboard::new_user', ['filter' => 'admin']);
-$routes->get('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
-$routes->post('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
+$routes->get('dashboard/users/all', 'Users::index', ['filter' => 'admin']);
+$routes->get('dashboard/users/new', 'Users::create', ['filter' => 'admin']);
+$routes->post('dashboard/users/new', 'Users::create', ['filter' => 'admin']);
+$routes->get('dashboard/users/edit/(:num)', 'Users::edit/$1', ['filter' => 'admin']);
+$routes->post('dashboard/users/edit/(:num)', 'Users::edit/$1', ['filter' => 'admin']);
+$routes->get('dashboard/users/delete/(:num)', 'Users::delete/$1', ['filter' => 'admin']);
+$routes->post('dashboard/users/delete/(:num)', 'Users::delete/$1', ['filter' => 'admin']);
 
-$routes->get('dashboard/groups/all', 'Dashboard::all_groups', ['filter' => 'admin']);
-$routes->get('dashboard/groups/new', 'Dashboard::new_group', ['filter' => 'admin']);
-$routes->post('dashboard/groups/new', 'Dashboard::new_group', ['filter' => 'admin']);
-$routes->get('dashboard/groups/edit/(:num)', 'Dashboard::edit_group/$1', ['filter' => 'admin']);
-$routes->post('dashboard/groups/edit/(:num)', 'Dashboard::edit_group/$1', ['filter' => 'admin']);
-$routes->post('dashboard/groups/assign/(:num)', 'Dashboard::assign/$1', ['filter' => 'admin']);
+$routes->get('dashboard/groups/all', 'Groups::index', ['filter' => 'admin']);
+$routes->get('dashboard/groups/new', 'Groups::create', ['filter' => 'admin']);
+$routes->post('dashboard/groups/new', 'Groups::create', ['filter' => 'admin']);
+$routes->get('dashboard/groups/edit/(:num)', 'Groups::edit/$1', ['filter' => 'admin']);
+$routes->post('dashboard/groups/edit/(:num)', 'Groups::edit/$1', ['filter' => 'admin']);
+$routes->get('dashboard/groups/delete/(:num)', 'Groups::delete/$1', ['filter' => 'admin']);
+$routes->post('dashboard/groups/delete/(:num)', 'Groups::delete/$1', ['filter' => 'admin']);
 
-$routes->get('dashboard/quizzes/all', 'Dashboard::all_quizzes', ['filter' => 'admin']);
-$routes->get('dashboard/quizzes/new/1', 'Dashboard::new_quiz_1', ['filter' => 'teacher']);
-$routes->post('dashboard/quizzes/new/1', 'Dashboard::new_quiz_1', ['filter' => 'teacher']);
-$routes->get('dashboard/quizzes/new/2', 'Dashboard::new_quiz_2', ['filter' => 'teacher']);
-$routes->post('dashboard/quizzes/new/2', 'Dashboard::new_quiz_2', ['filter' => 'teacher']);
-//$routes->get('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
-//$routes->post('dashboard/users/edit/(:num)', 'Dashboard::edit_user/$1', ['filter' => 'admin']);
+$routes->get('quizzes', 'Quiz::index', ['filter' => 'auth']);
+$routes->get('quizzes/(:num)', 'Quiz::view/$1', ['filter' => 'auth']);
+$routes->get('quiz/(:num)/answer', 'Quiz::answer/$1', ['filter' => 'auth']);
+$routes->post('quiz/(:num)/answer', 'Quiz::answer/$1', ['filter' => 'auth']);
+$routes->get('dashboard/quizzes/all', 'Quiz::all', ['filter' => 'teacher']);
+$routes->get('dashboard/quizzes/passed', 'Quiz::passed', ['filter' => 'teacher']);
+$routes->get('dashboard/quizzes/new/1', 'Quiz::create_1', ['filter' => 'teacher']);
+$routes->post('dashboard/quizzes/new/1', 'Quiz::create_1', ['filter' => 'teacher']);
+$routes->get('dashboard/quizzes/new/2', 'Quiz::create_2', ['filter' => 'teacher']);
+$routes->post('dashboard/quizzes/new/2', 'Quiz::create_2', ['filter' => 'teacher']);
+$routes->get('dashboard/quizzes/delete/(:num)', 'Quiz::delete/$1', ['filter' => 'admin']);
+$routes->post('dashboard/quizzes/delete/(:num)', 'Quiz::delete/$1', ['filter' => 'admin']);
 
 
 

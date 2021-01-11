@@ -9,27 +9,22 @@
                     <div class="info">
                         <ul class="list-style-none">
                             <li>
-                                <i class="fas fa-hashtag first"></i>
                                 <i class="fas fa-hashtag second"></i>
                                 <span><?= $currentUser['id'] ?></span>
                             </li>
                             <li>
-                                <i class="fas fa-user first"></i>
                                 <i class="fas fa-user second"></i>
-                                <span><?= $currentUser['firstname'] . ' ' . $user['lastname'] ?></span>
+                                <span><?= $currentUser['firstname'] . ' ' . $currentUser['lastname'] ?></span>
                             </li>
                             <li>
-                                <i class="fas fa-users-cog first"></i>
                                 <i class="fas fa-users-cog second"></i>
                                 <span><?= $currentUser['role'] ?></span>
                             </li>
                             <li>
-                                <i class="fas fa-envelope first"></i>
                                 <i class="fas fa-envelope second"></i>
                                 <span><?= $currentUser['email'] ?></span>
                             </li>
                             <li>
-                                <i class="fas fa-calendar-plus first"></i>
                                 <i class="fas fa-calendar-plus second"></i>
                                 <span><?= $currentUser['created_at'] ?></span>
                             </li>
@@ -42,23 +37,23 @@
                 <div class="widget-content site-stats">
                     <div class="stats-info">
                         <i class="fas fa-users"></i>
-                        <span class="count">420</span>
-                        <span class="details">Total Members</span>
+                        <span class="count"><?= $students ?></span>
+                        <span class="details">Total Students</span>
+                    </div>
+                    <div class="stats-info">
+                        <i class="fas fa-users"></i>
+                        <span class="count"><?= $teachers ?></span>
+                        <span class="details">Total Teachers</span>
                     </div>
                     <div class="stats-info">
                         <i class="fas fa-comments"></i>
-                        <span class="count">669</span>
-                        <span class="details">Total Posts</span>
+                        <span class="count"><?= $groups ?></span>
+                        <span class="details">Total Groups</span>
                     </div>
                     <div class="stats-info">
                         <i class="fas fa-comment-dots"></i>
-                        <span class="count">1969</span>
-                        <span class="details">Total Comments</span>
-                    </div>
-                    <div class="stats-info">
-                        <i class="fas fa-tags"></i>
-                        <span class="count">969</span>
-                        <span class="details">Total Categories</span>
+                        <span class="count"><?= $quizzes ?></span>
+                        <span class="details">Total Quizzes</span>
                     </div>
                 </div>
             </div>

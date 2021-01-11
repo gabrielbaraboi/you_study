@@ -5,7 +5,7 @@
     <?= $group['name'] ?><br>
     <?= $quiz['start_time'] ?><br>
     <?= $quiz['end_time'] ?><br>
-    <?= date('Y-m-d H:i:s'); ?><br>
+    <?= $mark ?><br>
     <?php if ($start): ?>
         <a href="<?= base_url('quiz/' . $quiz['id'] . '/answer') ?>"><button class="login-btn">Start Quiz</button></a>
     <?php else:?>
