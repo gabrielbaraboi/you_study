@@ -243,6 +243,24 @@ class Dashboard extends BaseController
 
     }
 
+    public function all_quizzes()
+    {
+        $data = [];
+        $model = new UserModel();
+        $quizModel = new QuizModel();
+        $groupModel = new GroupModel();
+        $currentUser = $model->find(session()->get('id'));
+        $groups = $groupModel->findAll();
+        $quizzes = $quizModel->findAll();
+        $teachers = $model->where('role', 'teacher')->findAll();
+        $data['currentUser'] = $currentUser;
+        $data['quizzes'] = $quizzes;
+        $data['teachers'] = $teachers;
+        $data['groups'] = $groups;
+
+        return view('dashboard\quizzes_all', $data);
+    }
+
     public function new_quiz_1()
     {
         $data = [];
@@ -300,12 +318,22 @@ class Dashboard extends BaseController
                     array_push($questions, $this->request->getVar($question));
                 }
                 $questions = serialize($questions);
+
                 $answers = [];
                 for ($i = 1; $i <= $this->request->getVar('questions_count'); $i++) {
                     $answer = 'answer-' . $i;
-                    array_push($answers, $this->request->getVar($answer));
+                    $array = preg_split("/\r\n|\n|\r/", $this->request->getVar($answer));
+                    array_push($answers, $array);
                 }
                 $answers = serialize($answers);
+
+                $correct_answers = [];
+                for ($i = 1; $i <= $this->request->getVar('questions_count'); $i++) {
+                    $correct_answer = 'correct-' . $i;
+                    array_push($correct_answers, $this->request->getVar($correct_answer));
+                }
+                $correct_answers = serialize($correct_answers);
+
                 $newData = [
                     'title' => $this->request->getVar('title'),
                     'teacher_id' => $currentUser['id'],
@@ -313,6 +341,7 @@ class Dashboard extends BaseController
                     'questions_count' => $this->request->getVar('questions_count'),
                     'questions' => $questions,
                     'answers' => $answers,
+                    'correct_answers' => $correct_answers,
                     'start_time' => $this->request->getVar('start_time'),
                     'end_time' => $this->request->getVar('end_time'),
                 ];

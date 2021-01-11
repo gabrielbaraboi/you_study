@@ -12,6 +12,10 @@ class Home extends BaseController
             ->first();
         $data['user'] = $user;
 
+        if(!session()->get('isLoggedIn')){
+            return redirect()->to('/login');
+        }
+
         return view('home', $data);
 	}
 }

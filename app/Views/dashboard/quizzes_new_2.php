@@ -21,6 +21,13 @@
                     <span class="login-span"></span>
                 </div>
                 <div class="form-group login-group">
+                    <input type="text" id="correct-<?= $i; ?>" name="correct-<?= $i; ?>"
+                           class="login-form"
+                           placeholder="Correct answer"
+                           required>
+                    <span class="login-span"></span>
+                </div>
+                <div class="form-group login-group">
                     <textarea id="answer-<?= $i; ?>" name="answer-<?= $i; ?>"
                               class="login-form"
                               placeholder="Answers"

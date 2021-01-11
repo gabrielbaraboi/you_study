@@ -36,7 +36,7 @@ class Login extends BaseController
                     ->first();
 
                 $this->setUserSession($user);
-                return redirect()->to('home');
+                return redirect()->to('/');
 
             }
         }
@@ -60,7 +60,7 @@ class Login extends BaseController
 
     public function logout(){
         session()->destroy();
-        return redirect()->to('/');
+        return redirect()->to('/login');
     }
 
 }

@@ -40,9 +40,15 @@
                                 <span class="nav-text">Home</span>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('/quizzes') ?>">
+                                <i class="nav-icon fas fa-file-contract"></i>
+                                <span class="nav-text">Quizzes</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <?php if (strcmp($user['role'], 'teacher') == 0 || strcmp($user['role'], 'admin') == 0 || strcmp($user['role'], 'root') == 0): ?>
+                <?php if (strcmp($user['role'], 'student') != 0): ?>
                     <div class="nav-group">
                         <h6 class="nav-title">Secret</h6>
                         <ul class="nav">

@@ -7,21 +7,33 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th>Teacher</th>
+                    <th>Group</th>
+                    <th>Questions</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
                     <?php if ($currentUser['role'] == 'admin' or $currentUser['role'] == 'root'): ?>
                         <th>Action</th>
                     <?php endif; ?>
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($users as $user): ?>
+                <?php foreach ($quizzes as $quiz): ?>
                     <tr>
-                        <td><?= $user['id']; ?></td>
-                        <td><?= $user['firstname'] . ' ' . $user['lastname']; ?></td>
-                        <td><?= $user['email']; ?></td>
-                        <td><?= $user['role']; ?></td>
+                        <td><?= $quiz['id']; ?></td>
+                        <td>
+                            <?php foreach ($teachers as $teacher):
+                                if (in_array($quiz['teacher_id'], $teacher)): echo $teacher['firstname'] . ' ' . $teacher['lastname']; break; endif;
+                            endforeach; ?>
+                        </td>
+                        <td>
+                            <?php foreach ($groups as $group):
+                                if (in_array($quiz['group_id'], $group)): echo $group['name']; break; endif;
+                            endforeach; ?>
+                        </td>
+                        <td><?= $quiz['questions_count']; ?></td>
+                        <td><?= $quiz['start_time']; ?></td>
+                        <td><?= $quiz['end_time']; ?></td>
                         <?php if ($currentUser['role'] == 'admin' or $currentUser['role'] == 'root'): ?>
                             <td>
                                 <a class="tnTableAction" href="<?= base_url("dashboard/users/edit/{$user['id']}") ?>">
@@ -49,68 +61,4 @@
         </div>
     </div>
 
-    <div class="modal fade" id="assignTeacherModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-dark" id="exampleModalLabel">Assign groups</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="<?= base_url("dashboard/groups/assign/{$user['id']}"); ?>"
-                          accept-charset="UTF-8"
-                          onsubmit="assignButton.disabled = true; return true;" class="form">
-                        <div class="form-group login-group">
-                            <select name="userGroups[]" id="userGroups" class="form-control" multiple="multiple"
-                                    size="5">
-                                <?php foreach ($groups as $group): ?>
-                                    <option value="<?php echo $group['id']; ?>"<?php if (unserialize($user['groups'])): if (in_array($group['id'], unserialize($user['groups']))): ?> selected='selected'<?php endif; endif; ?>><?php echo $group['name']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <?= csrf_field() ?>
-                        <button type="submit" name="assignButton" class="btn btn-primary">Assign</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="assignStudentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-dark" id="exampleModalLabel">Assign groups</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="<?= base_url("dashboard/groups/assign/{$user['id']}"); ?>"
-                          accept-charset="UTF-8"
-                          onsubmit="assignButton.disabled = true; return true;" class="form">
-                        <div class="form-group login-group">
-                            <select name="userGroup" id="userGroup" class="form-control">
-                                <?php foreach ($groups as $group): ?>
-                                    <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        <?= csrf_field() ?>
-                        <button type="submit" name="assignButton" class="btn btn-primary">Assign</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
 <?= $this->endSection() ?>

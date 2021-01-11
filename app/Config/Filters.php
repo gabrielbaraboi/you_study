@@ -2,6 +2,7 @@
 
 use App\Filters\Auth;
 use App\Filters\IsAdmin;
+use App\Filters\IsTeacher;
 use App\Filters\NoAuth;
 use CodeIgniter\Config\BaseConfig;
 
@@ -16,6 +17,7 @@ class Filters extends BaseConfig
         'auth' => Auth::class,
         'noauth' => NoAuth::class,
         'admin' => IsAdmin::class,
+        'teacher' => IsTeacher::class,
 ];
 
 	// Always applied before every request

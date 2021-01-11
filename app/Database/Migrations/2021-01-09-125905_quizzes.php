@@ -13,6 +13,7 @@ class Quizzes extends Migration
             'group_id'			    => ['type' => 'INT', 'null' => true],
             'questions'			    => ['type' => 'TEXT', 'null' => true],
             'answers'			    => ['type' => 'TEXT', 'null' => true],
+            'correct_answers'	    => ['type' => 'TEXT', 'null' => true],
             'questions_count'		=> ['type' => 'INT', 'null' => true],
             'start_time'			=> ['type' => 'TIMESTAMP', 'null' => true],
             'end_time'			    => ['type' => 'TIMESTAMP', 'null' => true],

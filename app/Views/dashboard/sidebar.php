@@ -50,15 +50,18 @@
                         <span>Manage Groups</span>
                     </a>
                 </li>
+                <?php if ($currentUser['role'] != 'teacher'): ?>
                 <li>
                     <a href="<?= base_url('dashboard/groups/new'); ?>">
                         <i class="fas fa-user-plus"></i>
                         <span>Create Group</span>
                     </a>
                 </li>
+                <?php endif; ?>
             </ul>
         </div>
     </div>
+    <?php if ($currentUser['role'] != 'admin'): ?>
     <div class="nav-group">
         <button class="nav-button" type="button" data-toggle="collapse" data-target="#collapse-groups" aria-expanded="true" aria-controls="collapse-quizzes">Quizzes</button>
         <div id="collapse-quizzes" class="collapse show">
@@ -78,4 +81,5 @@
             </ul>
         </div>
     </div>
+    <?php endif; ?>
 </nav>

@@ -233,7 +233,8 @@ blockquote {
 }
 
 .main-content {
-    width: 100%;
+    width: calc(100% - 270px);
+    margin-left: 270px;
     padding: 30px 40px 140px 40px;
     position: relative;
 }
@@ -479,7 +480,7 @@ blockquote {
     color: var(--text-hover-color);
 }
 
-.login .login-btn {
+.login-btn {
     color: var(--heading-color);
     background: #3c67b7;
     font-size: 1.2rem;
