@@ -42,7 +42,7 @@
             <?php endforeach; ?>
         </div>
         <?php if ($k == 0): ?>
-            <h5 class="admin-page-title" style="color: #ffffff80;">You are not have to pass any quiz :)</h5>
+            <h5 class="admin-page-title" style="color: #ffffff80;">You have not to pass any quiz :)</h5>
         <?php endif;?>
     </div>
 <?= $this->include('sidebar') ?>
