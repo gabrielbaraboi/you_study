@@ -74,6 +74,7 @@ class Quiz extends BaseController
         $quizzes = $quizModel->findAll();
         $teachers = $model->where('role', 'teacher')->findAll();
         $data['currentUser'] = $currentUser;
+        $data['quizzes'] = $quizzes;
         $data['teachers'] = $teachers;
         $data['groups'] = $groups;
 

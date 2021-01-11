@@ -36,22 +36,22 @@
                 <h4>Site statistics</h4>
                 <div class="widget-content site-stats">
                     <div class="stats-info">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-user-friends"></i>
                         <span class="count"><?= $students ?></span>
                         <span class="details">Total Students</span>
                     </div>
                     <div class="stats-info">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-chalkboard-teacher"></i>
                         <span class="count"><?= $teachers ?></span>
                         <span class="details">Total Teachers</span>
                     </div>
                     <div class="stats-info">
-                        <i class="fas fa-comments"></i>
+                        <i class="fas fa-users"></i>
                         <span class="count"><?= $groups ?></span>
                         <span class="details">Total Groups</span>
                     </div>
                     <div class="stats-info">
-                        <i class="fas fa-comment-dots"></i>
+                        <i class="far fa-question-circle"></i>
                         <span class="count"><?= $quizzes ?></span>
                         <span class="details">Total Quizzes</span>
                     </div>
